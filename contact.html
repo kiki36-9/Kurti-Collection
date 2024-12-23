@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Kurti Collection</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <h1>Kurti Collection</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contact Us Section -->
+  <section class="contact-us">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or feedback, feel free to reach out to us using the form below or through the contact information provided.</p>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <form action="submit_form.php" method="POST">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <h3>Our Contact Information</h3>
+      <p>Email: <a href="mailto:support@kurticollection.com">support@kurticollection.com</a></p>
+      <p>Phone: +91 123 456 7890</p>
+      <p>Address: 123 Kurti Street, Fashion City, India</p>
+    </div>
+
+    <!-- Optional Map Section -->
+    <div class="map">
+      <h3>Find Us on the Map</h3>
+      <!-- You can replace the iframe source with your own map location if necessary -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.2152871057116!2d85.81950171506213!3d20.308943186032065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19bfa97c6d8c35%3A0x777888666bbb7f5!2sFashion%20City%20India!5e0!3m2!1sen!2sin!4v1657585493202" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Kurti Collection. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts.js"></script>
+</body>
+</html>

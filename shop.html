@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Kurtis</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <h1>Kurti Collection</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Shopping Section -->
+  <section class="shop">
+    <h2>Shop Our Kurtis</h2>
+    <p>Explore our collection of beautiful Kurtis and add your favorites to the cart.</p>
+    
+    <div class="products-container">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/41MJO6nPIYL.jpg" alt="Elegant Red Kurti">
+        <h3>Elegant Red Kurti</h3>
+        <p>Price: ₹1,200</p>
+        <button class="add-to-cart" data-product="Elegant Red Kurti" data-price="1200">Add to Cart</button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/41rcHZoEizL._AC_UL320_.jpg" alt="Blue Floral Kurti">
+        <h3>Blue Floral Kurti</h3>
+        <p>Price: ₹1,500</p>
+        <button class="add-to-cart" data-product="Blue Floral Kurti" data-price="1500">Add to Cart</button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71s8389lp4L._AC_UL320_.jpg" alt="Green A-Line Kurti">
+        <h3>Green A-Line Kurti</h3>
+        <p>Price: ₹1,000</p>
+        <button class="add-to-cart" data-product="Green A-Line Kurti" data-price="1000">Add to Cart</button>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/51Ou80s8qdL._AC_UL320_.jpg" alt="Pink Cotton Kurti">
+        <h3>Pink Cotton Kurti</h3>
+        <p>Price: ₹1,350</p>
+        <button class="add-to-cart" data-product="Pink Cotton Kurti" data-price="1350">Add to Cart</button>
+      </div>
+      <div class="product-card">
+
+        <div class="kurti-card">
+            <img src="images/kurti3.jpg" alt="Georgette Kurti">
+            <h3>Georgette Kurti</h3>
+            <p>₹999</p>
+            <a href="shop.html" class="view-details">View Details</a>
+          </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Kurti Collection. All rights reserved.</p>
+  </footer>
+
+  <!-- Cart JavaScript -->
+  <script src="shop.js"></script>
+</body>
+</html>
