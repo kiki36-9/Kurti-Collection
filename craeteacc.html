@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Kurti Store</title>
+    <a href="homepage.html"><img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSWuDy6OffzcMRcKffdHyng10Ae9CB_MmwI4tnSB4sV6TV4av2njJqMXWTy8rqX-i3ZpCljKO2erRuj-7NiE3zI_HDuG-yV&usqp=CAE" alt="" width="50px" style="border-radius: 50px;"></a>
+    <style>body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .create-account-container {
+        width: 50%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    
+    p {
+        text-align: center;
+        font-size: 14px;
+        color: #555;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    fieldset {
+        border: none;
+        margin-bottom: 20px;
+    }
+    
+    legend {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    
+    label {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: #555;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+    
+    button {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    
+    a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+    <div class="create-account-container">
+        <h2>Create Your Account</h2>
+        <p>Welcome to our Kurti store! Please fill out the form below to create an account.</p>
+
+        <form action="/submit-form" method="POST">
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required>
+
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number (Optional)</label>
+                <input type="tel" id="phone" name="phone">
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Shipping Address</legend>
+
+                <label for="address">Street Address</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="state">State/Province</label>
+                <input type="text" id="state" name="state" required>
+
+                <label for="postal-code">Postal Code</label>
+                <input type="text" id="postal-code" name="postal-code" required>
+
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="india">India</option>
+                    <option value="usa">USA</option>
+                    <option value="uk">UK</option>
+                    <!-- Add more countries as required -->
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Account Information</legend>
+
+                <label for="password">Create a Password</label>
+                <input type="password" id="password" name="password" required minlength="6">
+
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Preferences</legend>
+
+                <label for="newsletter">Subscribe to our Newsletter</label>
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <span>Yes, send me updates on new arrivals and exclusive offers!</span>
+
+            </fieldset>
+
+            <fieldset>
+                <label for="terms">
+                    <input type="checkbox" id="terms" name="terms" required> 
+                    I agree to the <a href="/terms" target="_blank">Terms & Conditions</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a>.
+                </label>
+            </fieldset>
+
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+</body>
+</html>
