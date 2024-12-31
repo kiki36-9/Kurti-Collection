@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS if needed -->
+    <script src="checkout.js" defer></script> <!-- Link to external JS file -->
+    <style>body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        background-color: #333;
+        color: white;
+        padding: 1em;
+        text-align: center;
+    }
+    
+    main {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+    
+    .cart-summary, .user-details {
+        background-color: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 45%;
+    }
+    
+    form label {
+        display: block;
+        margin-top: 10px;
+    }
+    
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    
+    form button {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    form button:hover {
+        background-color: #218838;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* new css code for form */
+    /* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Heading */
+form h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Label and Input Styles */
+label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select,
+input[type="date"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+textarea {
+  resize: vertical;
+}
+
+select {
+  font-size: 1rem;
+}
+
+/* Styling for Input Focus */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus,
+input[type="date"]:focus,
+input[type="password"]:focus {
+  border-color: #e74c3c;
+  outline: none;
+}
+
+/* Button Styling */
+button[type="submit"] {
+  background-color: #e74c3c;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #c0392b;
+}
+
+/* Style for Card Type dropdown and Expiry Date */
+p {
+  margin-bottom: 15px;
+}
+
+/* Add a bit of space for each input */
+input, select, textarea {
+  margin-bottom: 10px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  form {
+    padding: 15px;
+  }
+
+  form h2 {
+    font-size: 1.5rem;
+  }
+
+  input, select, textarea {
+    font-size: 0.9rem;
+  }
+
+  button[type="submit"] {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+    </header>
+
+    <main>
+        <section class="cart-summary">
+            <h2>Your Cart</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+            </ul>
+            <p><strong>Total:</strong> ₹<span id="total-amount">0.00</span></p>
+        </section>
+
+        <section class="user-details">
+            <h2>Your Information</h2>
+            <form id="checkout-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="address">Shipping Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+
+                <p>Card Type:<select name="Card-type" id="Card-type" required>
+                    <option value="">--Select card type</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Rupay">Rupay</option>
+                    <option value="Mastercard">Mastercard</option>
+                    </select>
+                </p>
+ 
+                <p>
+                 Expiration Date:<input type="date"
+                 name="exp-date"
+                 id="exp-date" required>
+                </p>
+
+                <p>
+                    CVV:<input type="password" name="CVV" id="password" required>
+                </p>
+
+
+                <button type="submit">Proceed to Payment</button>
+            </form>
+        </section>
+    </main>
+    <script>// Sample cart data (this could come from an API or local storage in a real application)
+        const cartItems = [
+            { name: "Item 1", price: 2999, quantity: 2 }, // Price in INR
+            { name: "Item 2", price: 1599, quantity: 1 }  // Price in INR
+        ];
+        
+        // Function to update the cart display
+        function updateCart() {
+            const cartList = document.getElementById('cart-items');
+            const totalAmount = document.getElementById('total-amount');
+            
+            cartList.innerHTML = '';  // Clear current cart items
+        
+            let total = 0;
+            cartItems.forEach(item => {
+                const listItem = document.createElement('li');
+                // Show the price in INR
+                listItem.textContent = `${item.name} - ₹${item.price.toLocaleString()} x ${item.quantity}`;
+                cartList.appendChild(listItem);
+                
+                total += item.price * item.quantity;
+            });
+        
+            // Format the total as INR and display
+            totalAmount.textContent = total.toLocaleString();
+        }
+        
+        // Handle form submission
+        document.getElementById('checkout-form').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent page reload
+        
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+        
+            if (!name || !email || !address) {
+                alert('Please fill in all fields.');
+                return;
+            }
+        
+            // Simulate a checkout process (e.g., sending data to a server)
+            alert(`Order placed for ${name} at ${email} with delivery to ${address}.`);
+        
+            // You can reset the form or redirect to another page for payment processing
+            document.getElementById('checkout-form').reset();
+        });
+        
+        // Initialize cart on page load
+        window.onload = updateCart;
+        </script>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">
+      <a href="homepage.html">
+        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSWuDy6OffzcMRcKffdHyng10Ae9CB_MmwI4tnSB4sV6TV4av2njJqMXWTy8rqX-i3ZpCljKO2erRuj-7NiE3zI_HDuG-yV&usqp=CAE" alt="Kurti Collection Logo" width="60px" style="border-radius: 50px;">
+      </a>
+      <h2>Kurti Collection</h2>
+    </div>
+
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h3>Follow Us</h3>
+      <ul>
+        <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="Instagram" width="30px"></a></li>
+        <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="Facebook" width="30px"></a></li>
+        <li><a href="#"><img src="https://e7.pngegg.com/pngimages/708/311/png-clipart-icon-logo-twitter-logo-twitter-logo-blue-social-media-thumbnail.png" alt="Twitter" width="30px"></a></li>
+      </ul>
+    </div>
+
+    <div class="footer-newsletter">
+      <h3>Newsletter</h3>
+      <p>Subscribe to our newsletter to stay updated with the latest arrivals and exclusive offers.</p>
+      <form action="#" method="POST">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2024 Kurti Collection. All rights reserved.</p>
+    <p>Made with ❤️ for fashion enthusiasts.</p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    flex: 1;
+    text-align: center;
+  }
+
+  .footer-logo h2 {
+    color: #f0a500;
+    font-size: 24px;
+    margin-top: 10px;
+  }
+
+  .footer-links, .footer-social, .footer-newsletter {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .footer-links h3, .footer-social h3, .footer-newsletter h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .footer-links ul, .footer-social ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-links ul li, .footer-social ul li {
+    margin: 5px 0;
+  }
+
+  .footer-links ul li a, .footer-social ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .footer-links ul li a:hover, .footer-social ul li a:hover {
+    color: #f0a500;
+  }
+
+  .footer-social ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .footer-newsletter form {
+    display: flex;
+    gap: 10px;
+  }
+
+  .footer-newsletter input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 70%;
+  }
+
+  .footer-newsletter button {
+    padding: 10px 20px;
+    background-color: #f0a500;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .footer-newsletter button:hover {
+    background-color: #e89e00;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  .footer-bottom p {
+    margin: 5px 0;
+  }
+</style>
+</body>
+</html>
