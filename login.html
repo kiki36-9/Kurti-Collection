@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        /* Login Form */
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .login-container input:focus {
+            border-color: #6c5ce7;
+            outline: none;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .login-container button:hover {
+            background-color: #4e2fbd;
+        }
+
+        .login-container button:active {
+            background-color: #3a239d;
+        }
+
+        /* Error Message */
+        .error-message {
+            color: red;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Sign In Section */
+        .sign-in-section {
+            display: none; /* Initially hidden */
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .login-container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: #6c5ce7;
+            font-size: 14px;
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Section -->
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p id="error-message" class="error-message"></p>
+            <a href="homepage.html">Back to Home</a>
+        </form>
+    </div>
+
+    <!-- Sign In Section -->
+    <div id="signInSection" class="sign-in-section">
+        <h2>Welcome to the Sign-In Section!</h2>
+        <p>This is the area that users are redirected to after a successful login.</p>
+    </div>
+
+    <script>
+        // Handle login form submission
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            // Get input values
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Predefined credentials for validation (In real-world scenarios, this should be checked on the server-side)
+            const validUsername = "user123";
+            const validPassword = "password123";
+
+            // Check if the input values match the predefined credentials
+            if (username === validUsername && password === validPassword) {
+                // If credentials are correct, show the sign-in section and hide the login form
+                document.querySelector(".login-container").style.display = "none"; // Hide login form
+                document.getElementById("signInSection").style.display = "block"; // Show sign-in section
+            } else {
+                // If credentials are incorrect, display an error message
+                document.getElementById("error-message").textContent = "Invalid username or password.";
+            }
+        });
+    </script>
+</body>
+</html>
