@@ -132,26 +132,20 @@
     </div>
 
     <script>
-        // Handle login form submission
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form from submitting normally
+        document.getElementById("loginpage").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-            // Get input values
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
+            const users = JSON.parse(localStorage.getItem("users")) || [];
 
-            // Predefined credentials for validation (In real-world scenarios, this should be checked on the server-side)
-            const validUsername = "user123";
-            const validPassword = "password123";
+            const user = users.find(user => user.username === username && user.password === password);
 
-            // Check if the input values match the predefined credentials
-            if (username === validUsername && password === validPassword) {
-                // If credentials are correct, show the sign-in section and hide the login form
-                document.querySelector(".login-container").style.display = "none"; // Hide login form
-                document.getElementById("signInSection").style.display = "block"; // Show sign-in section
+            if (user) {
+                alert("Login successful! Welcome back, " + username + ".");
+                window.location.href = "index.html";
             } else {
-                // If credentials are incorrect, display an error message
-                document.getElementById("error-message").textContent = "Invalid username or password.";
+                alert("Invalid credentials! Please check your username and password.");
             }
         });
     </script>
