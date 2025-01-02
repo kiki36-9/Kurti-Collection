@@ -174,5 +174,23 @@
             <button type="submit">Create Account</button>
         </form>
     </div>
+    <script><script>
+    document.getElementById("signuppage").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const user = {
+    username: username,
+    email: email,
+    password: password
+    };
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    users.push(user);
+    localStorage.setItem("users", JSON.stringify(users));
+    alert("Sign Up successful! Data stored locally.");
+    window.location.href = "index.html";
+    });
+    </script></script>
 </body>
 </html>
